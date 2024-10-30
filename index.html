@@ -1,0 +1,73 @@
+<html><head><base href="/" />
+<style>
+* {
+  font-family: 'Inconsolata', 'Consolas', monospace;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #1a1a1a;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.word-box {
+  background-color: #2a2a2a;
+  border: 1px solid #3a3a3a;
+  border-radius: 15px;
+  padding: 20px 40px;
+  display: inline-block;
+  cursor: pointer;
+  user-select: none;
+  color: #4a9eff;
+  font-size: 1.2rem;
+  text-shadow: 0 0 10px rgba(74, 158, 255, 0.5);
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px rgba(74, 158, 255, 0.1);
+}
+
+.word-box:hover {
+  background-color: #303030;
+  box-shadow: 0 0 20px rgba(74, 158, 255, 0.2);
+  transform: scale(1.02);
+}
+
+.word-box:active {
+  transform: scale(0.98);
+}
+</style>
+<script>
+// List of random words
+const words = [
+  "serendipity", "ephemeral", "mellifluous", "luminous", "ethereal",
+  "cascade", "labyrinth", "paradox", "zenith", "nebula",
+  "quantum", "enigma", "synthesis", "aurora", "nexus",
+  "cipher", "vertex", "epoch", "artifact", "catalyst"
+];
+
+function generateWord() {
+  const box = document.getElementById('wordBox');
+  const randomIndex = Math.floor(Math.random() * words.length);
+  box.textContent = words[randomIndex];
+}
+</script>
+</head>
+<body>
+
+<div id="wordBox" class="word-box" onclick="generateWord()">
+  Click me for a word
+</div>
+
+<script>
+// Load Inconsolata font from Google Fonts
+const link = document.createElement('link');
+link.href = 'https://fonts.googleapis.com/css2?family=Inconsolata:wght@400&display=swap';
+link.rel = 'stylesheet';
+document.head.appendChild(link);
+</script>
+
+</body></html>
